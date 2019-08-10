@@ -12,13 +12,38 @@ public class _01_RobotRace {
 
 		// 2. create an array of 5 robots.
 		Robot robs[] = new Robot[10];
+//		Robot ro = new Robot();
+//		for (int i = 0; i < 36; i++) {
+//			ro.miniaturize();
+//			ro.setSpeed(30);
+//			ro.penDown();
+//			ro.move(30);
+//			ro.turn(10);
+//		}
+//		for (int i = 1; i < 36; i++){
+//			robs[0] = new Robot();
+//			robs[0].move(10);
+//			robs[0].turn(10);
+//		}
 		// 3. use a for loop to initialize the robots.
-		for (int i = 0; i < robs.length; i++) {
+		Random ra = new Random();
+		int s = ra.nextInt(20);
+;		for (int i = 0; i < robs.length; i++) {
 			robs[i] = new Robot();
 			robs[i].setY(520);
 			robs[i].miniaturize();
-			robs[i].setSpeed(15);
+			robs[i].setSpeed(s);
+			int counter = 0;
+			while (counter <= 36) {
+				robs[i].move(20);
+				robs[i].turn(10);
+				counter ++;
+			}
+			counter = 0;
+			
 		}
+		
+		
 
 		// 4. make each robot start at the bottom of the screen, side by side, facing up
 		robs[0].setX(100);
@@ -68,5 +93,6 @@ public class _01_RobotRace {
 		// 8. try different races with different amounts of robots.
 
 		// 9. make the robots race around a circular track.
+		
 	}
 }
