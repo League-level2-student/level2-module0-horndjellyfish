@@ -32,14 +32,7 @@ public class _01_RobotRace {
 			robs[i] = new Robot();
 			robs[i].setY(520);
 			robs[i].miniaturize();
-			robs[i].setSpeed(s);
-			int counter = 0;
-			while (counter <= 36) {
-				robs[i].move(20);
-				robs[i].turn(10);
-				counter ++;
-			}
-			counter = 0;
+			robs[i].setSpeed(45);
 			
 		}
 		
@@ -58,20 +51,35 @@ public class _01_RobotRace {
 		robs[9].setX(550);
 		// 5. use another for loop to iterate through the array and make each robot move
 		// a random amount less than 50.
-		Random r = new Random();
-		for (int i = 0; i < robs.length; i++) {
-			int value = r.nextInt(50);
-			robs[i].move(value);
-		}
+//		Random r = new Random();
+//		for (int i = 0; i < robs.length; i++) {
+//			int value = r.nextInt(50);
+//			robs[i].move(value);
+//		}
 		// 6. use a while loop to repeat step 5 until a robot has reached the top of the
 		// screen.
+//		boolean finishLine = false;
+//		while (finishLine == false) {
+//			for (int i = 0; i < robs.length; i++) {
+//				if (!finishLine) {
+//					int value = r.nextInt(30);
+//					robs[i].move(value);
+//					if (robs[i].getY() <= 0) {
+//						finishLine = true;
+//					}
+//				}
+//			}
+//
+//		}
+		Random r = new Random();
 		boolean finishLine = false;
 		while (finishLine == false) {
 			for (int i = 0; i < robs.length; i++) {
 				if (!finishLine) {
-					int value = r.nextInt(50);
-					robs[i].move(value);
-					if (robs[i].getY() <= 0) {
+					int value = r.nextInt(30);
+						robs[i].move(value);
+						robs[i].turn(10);
+					if (robs[i].getY() == 510 && robs[i].getX() <= 550 && robs[i].getX() >= 100) {
 						finishLine = true;
 					}
 				}
@@ -81,7 +89,7 @@ public class _01_RobotRace {
 		// 7. declare that robot the winner and throw it a party!
 		Robot winner = new Robot();
 		for (int i = 0; i < robs.length; i++) {
-			if (robs[i].getY() <= 0) {
+			if (robs[i].getY() == 510) {
 				JOptionPane.showMessageDialog(null, "Winner!");
 				robs[i] = winner;
 				winner.setSpeed(50);
